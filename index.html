@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-left">
+            <a href="#library" class="nav-item">Library</a>
+        </div>
+        <div class="nav-right">
+            <a href="#books" class="nav-item">Books</a>
+            <a href="#categories" class="nav-item">Categories</a>
+            <a href="#contact" class="nav-item">Contact</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section id="library" class="hero">
+            <h1 class="split-text">Library Management System</h1>
+            <p class="subtitle">Explore our collection of carefully curated books</p>
+        </section>
+
+        <section id="books" class="books-section">
+            <h2 class="section-title">Our Books</h2>
+            <div class="controls">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search books...">
+                    <button id="searchBtn">Search</button>
+                </div>
+                <div class="filter-sort">
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Science">Science</option>
+                        <option value="History">History</option>
+                        <option value="Non-Fiction">Non-Fiction</option>
+                    </select>
+                    <select id="statusFilter">
+                        <option value="">All Status</option>
+                        <option value="available">Available</option>
+                        <option value="borrowed">Borrowed</option>
+                    </select>
+                    <select id="sortSelect">
+                        <option value="title">Sort by Title</option>
+                        <option value="author">Sort by Author</option>
+                        <option value="year">Sort by Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="books-grid">
+                <!-- Books will be dynamically added here -->
+            </div>
+        </section>
+
+        <section id="categories" class="categories-section">
+            <h2 class="section-title">Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card" style="background-color: #FF6B6B">
+                    <h3>Fiction</h3>
+                    <p>Explore our collection of novels, short stories, and literary works</p>
+                </div>
+                <div class="category-card" style="background-color: #4ECDC4">
+                    <h3>Science</h3>
+                    <p>Discover books about physics, biology, chemistry, and more</p>
+                </div>
+                <div class="category-card" style="background-color: #45B7D1">
+                    <h3>History</h3>
+                    <p>Journey through time with our historical accounts and biographies</p>
+                </div>
+                <div class="category-card" style="background-color: #96CEB4">
+                    <h3>Non-Fiction</h3>
+                    <p>Learn from our selection of educational and informative books</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Graphic Era Hill University, Dehradun, Uttarakhand, India</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+91 (555) 123-4567</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>library@gehu.ac.in</p>
+                    </div>
+                    <div class="team-members">
+                        <h3>Our Team</h3>
+                        <div class="team-grid">
+                            <div class="team-member">
+                                <h4>Yash Vikram Singh</h4>
+                            </div>
+                            <div class="team-member">
+                                <h4>Viraj Singh</h4>
+                            </div>
+                            <div class="team-member">
+                                <h4>Sujal Singh</h4>
+                            </div>
+                            <div class="team-member">
+                                <h4>Vishal Dasila</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="addBookModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Book</h2>
+            <form id="addBookForm">
+                <div class="form-group">
+                    <input type="text" id="title" placeholder="Title" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="author" placeholder="Author" required>
+                </div>
+                <div class="form-group">
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Science">Science</option>
+                        <option value="History">History</option>
+                        <option value="Non-Fiction">Non-Fiction</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="isbn" placeholder="ISBN" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="description" placeholder="Description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="publishedYear" placeholder="Published Year" required>
+                </div>
+                <button type="submit" class="submit-btn">Add Book</button>
+            </form>
+        </div>
+    </div>
+
+    <button id="addBookBtn" class="floating-btn">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html> 
